@@ -3,7 +3,6 @@ package java8;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Consumer;
 
 public class TesteMetodoForeach {
 
@@ -28,13 +27,22 @@ public class TesteMetodoForeach {
 //			
 //		});	
 		
-		palavras.sort((str1, str2) -> str1.length() - str2.length());
+		//palavras.sort((str1, str2) -> str1.length() - str2.length());
+		//palavras.sort(Comparator.comparing(s -> s.length()));
+		
+		//Ordene comparando o método length dentro de String
+		//palavras.sort(Comparator.comparing(String::length));
+		
+		// mudando o critério de comparação para ordenação. Em vez de tamanho, ordem alfabética
+		palavras.sort(String.CASE_INSENSITIVE_ORDER);		
 		
 //		System.out.println(palavras);
 		
-		palavras.forEach(palavra -> System.out.println(palavra));
+		//palavras.forEach(palavra -> System.out.println(palavra));
+		//Mudando o forEach para usar method reference no lugar de lambda
+		palavras.forEach(System.out::println);
 		
-		new Thread(() -> System.out.println("Executando um Runnable")).start();
+		//new Thread(() -> System.out.println("Executando um Runnable")).start();
 		
 
 	}
