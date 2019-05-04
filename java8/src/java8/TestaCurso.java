@@ -3,6 +3,8 @@ package java8;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class TestaCurso {
 
@@ -40,10 +42,33 @@ public class TestaCurso {
 		.map(Curso :: getAlunos) //.map(qtdeAlunos -> qtdeAlunos.getAlunos())
 		.forEach(System.out :: println); //.forEach(qtde -> System.out.println(qtde));
 		
+		System.out.println();
 		
+		// Primeiro elemento do filtro de todos os cursos com mais de 50 alunos
+		cursos.stream()
+		.filter(c -> c.getAlunos() > 50)
+		.findFirst()
+		.ifPresent(c -> System.out.println(c.getNome()));
 		
+		System.out.println();
 		
+		//Imprimindo a média de alunos de todos os cursos. 
+		cursos.stream()
+		.mapToInt(c -> c.getAlunos())
+		.average()
+		.ifPresent(m -> System.out.format("Média de alunos de todos os cursos é: %.2f", m));
 		
+		//Transformando Stream de curso em List de curso
+		List<Curso> cursosMais50Alunos = cursos.stream()
+		.filter(c -> c.getAlunos() > 50)
+		.collect(Collectors.toList());	
+		
+		System.out.println();
+		System.out.println();
+		System.out.println("Os cursos com mais de 50 alunos são:\n");
+		
+		cursosMais50Alunos
+		.forEach(c -> System.out.format("%s\n", c.getNome()));
 		
 	}
 }
