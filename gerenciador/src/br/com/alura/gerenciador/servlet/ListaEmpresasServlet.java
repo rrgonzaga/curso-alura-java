@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,21 +37,32 @@ public class ListaEmpresasServlet extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		
-		out.println("<HTML>");
-		out.println("<Body>");
-		out.println("<ul>");
+		/**
+		 * Aula 04 - Atividade 08 - jsp para listar empresas
+		 * 
+		 * - Separação de responsabilidades fazendo com que o servlet não tenha código HTML; 
+		 * - Criação de JSP (Java Server Page) para renderizar código estático (HTML) e código dinâmico (código Java/Scriptlet).
+		 * - Uso do objeto RequestDispatcher em um servlet para despachar/encaminhar uma requisição para o JSP 
+		 * passando um atributo na requisição; 
+		 * - JSP significa Java Server Pages;
+		 * - JSP é uma página automaticamente processada pelo Tomcat;
+		 * - Para gerar HTML dinamicamente no JSP usamos Scriplets; 
+		 * - Um scriptlet <% %> é um código Java dentro do HTML; 
+		 * - Um scriptlet só funciona em uma página JSP; 
+		 * - Usamos o RequestDispatcher para chamar um JSP a partir da servlet; 
+		 * - Obtemos o RequestDispatcher a partir do HttpServletRequest;
+		 * - Usamos a requisição para colocar ou pegar um atributo (setAttribute(.., ..) ou getAttribute(..)).
+		 */
 		
-		for(Empresa empresa : empresas) {
-			out.println("<li>"+ empresa.getNome() + "</li>");
-		}
+		request.setAttribute("empresas", empresas);
 		
-		out.println("</ul>");
-		out.println("</Body>");		
-		out.println("</HTML>");
+		//Returns a RequestDispatcher object that acts as a wrapper for the resource located at the given path. 
+		//A RequestDispatcher object can be used to forward a request to the resource or to include the resource in a response. 
+		//The resource can be dynamic or static. 
 		
-		
-		
-		
+		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas.jsp");
+		//Forwards a request from a servlet to another resource (servlet, JSP file, or HTML file) on the server.
+		rd.forward(request, response);	
 		
 		
 	}
