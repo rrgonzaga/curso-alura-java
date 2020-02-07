@@ -1,11 +1,11 @@
-<% 
-	//Scriptlet
-	String nomeEmpresa = (String)request.getAttribute("empresa");
-	System.out.println(nomeEmpresa);
-%>
+
 <HTML>
 	<!-- Minha primeira página JSP - Java Server Page -->
+	<!-- Aula 05 - Atividade 02 - Conhecendo Expression Language 
+		* Substituindo scriptlet por EL - Expression Language
+		* Acessando o atributo anexado na requisição 
+	-->
 	<Body>
-		<span> Empresa <%=nomeEmpresa %> cadastrada com sucesso! </span>
+		<span> Empresa ${empresa} cadastrada com sucesso! </span>
 	</Body>		
 </HTML>
