@@ -13,7 +13,7 @@
 		* Substituindo scriptlet por JSTL - Java Standard Tag Library (tags) e por Expression Language - EL (${})
 		* Refatorando o código usando Taglib, EL e tags HTML.
 		* JSTL é a biblioteca padrão de tags do Java, mas existem outras bibliotecas. Por exemplo, o Spring MVC possui a sua própria.
-		* JSTL não vem embutido com o Tomcat.Precisamos adicionar a lib do JSTL para poder usá-la. 
+		* JSTL não vem embutido com o Tomcat. Precisamos adicionar a lib do JSTL para poder usá-la. 
 	-->
 	<div>
 		Lista de empresas: 

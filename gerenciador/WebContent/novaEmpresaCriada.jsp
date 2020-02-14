@@ -1,11 +1,17 @@
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <HTML>
-	<!-- Minha primeira página JSP - Java Server Page -->
-	<!-- Aula 05 - Atividade 02 - Conhecendo Expression Language 
-		* Substituindo scriptlet por EL - Expression Language
-		* Acessando o atributo anexado na requisição 
+	
+	<!-- Aula 05 - Atividade 08 - Usando a taglib core 
+		* Uso da taglib core if junto com EL - Expression Language 
 	-->
 	<Body>
-		<span> Empresa ${empresa} cadastrada com sucesso! </span>
+		<c:if test="${not empty empresa}">
+			<span>Empresa ${empresa} cadastrada com sucesso!</span>
+		</c:if>
+		
+		<c:if test="${empty empresa}">
+			<span>Nenhuma empresa cadastrada!</span>
+		</c:if>
+		
 	</Body>		
 </HTML>
