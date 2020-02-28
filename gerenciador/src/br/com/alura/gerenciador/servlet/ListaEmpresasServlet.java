@@ -35,7 +35,6 @@ public class ListaEmpresasServlet extends HttpServlet {
 		Banco banco = new Banco();
 		List<Empresa> empresas = banco.getEmpresas();
 		
-		PrintWriter out = response.getWriter();
 		
 		/**
 		 * Aula 04 - Atividade 08 - jsp para listar empresas
