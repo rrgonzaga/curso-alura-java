@@ -25,7 +25,12 @@
 		<label> Nome: </label>
 		<input type="text" name="nome"/>
 		</div>
-		<br>
+		<br/>
+		<div>
+		<label> Data abertura: </label>
+		<input type="text" name="dataAbertura"/>
+		</div>
+		<br/>
 		<input type="submit" value="Enviar"/>	
 	</form>	
 	

@@ -2,6 +2,9 @@ package br.com.alura.gerenciador.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -57,9 +60,24 @@ public class NovaEmpresaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String nomeEmpresa = request.getParameter("nome");	
+		String nomeEmpresa = request.getParameter("nome");
+		String strDataAbertura = request.getParameter("dataAbertura");
+		
+		Date dataAbertura = null;
+		
+		try {
+			//Usando a classe SimpleDateFormat para fazer o parsing da data que veio do formulário
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			//Parses text from the beginning of the given string to produce a date.
+			dataAbertura = sdf.parse(strDataAbertura);
+		} catch (ParseException e) {
+			//usando o pattern catch and rethrow
+			throw new ServletException(e);
+		}
+		
 		Empresa empresa = new Empresa();
 		empresa.setNome(nomeEmpresa);
+		empresa.setDataAbertura(dataAbertura);
 		
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
