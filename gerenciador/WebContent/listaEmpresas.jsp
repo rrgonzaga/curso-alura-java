@@ -16,6 +16,13 @@
 <!-- 		* JSTL é a biblioteca padrão de tags do Java, mas existem outras bibliotecas. Por exemplo, o Spring MVC possui a sua própria. -->
 <!-- 		* JSTL não vem embutido com o Tomcat. Precisamos adicionar a lib do JSTL para poder usá-la.  -->
 	
+	
+	<div>
+		<c:if test="${not empty empresa}">
+			<span>Empresa ${empresa} cadastrada com sucesso!</span>
+		</c:if>
+	</div>
+	
 	<div>
 		Lista de empresas: 
 	</div>

@@ -57,6 +57,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 	 * - Criação de JSP (Java Server Page) para renderizar código estático (HTML) e código dinâmico (código Java/Scriptlet).
 	 * - Uso do objeto RequestDispatcher em um servlet para despachar/encaminhar uma requisição para o JSP 
 	 * passando um atributo na requisição. 
+	 * -Método que oferece suporte apenas para o tipo POST.
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -94,7 +95,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 		//Call the JSP - Java Server Page
 		
 		// A RequestDispatcher object can be used to forward a request to the resource or to include the resource in a response.
-		RequestDispatcher rd = request.getRequestDispatcher("/novaEmpresaCriada.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");
 		request.setAttribute("empresa", empresa.getNome());		
 		rd.forward(request, response);
 		
