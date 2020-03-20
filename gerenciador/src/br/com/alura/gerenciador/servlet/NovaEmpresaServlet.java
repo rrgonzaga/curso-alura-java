@@ -90,14 +90,39 @@ public class NovaEmpresaServlet extends HttpServlet {
 //		writer.println("</Body>");		
 //		writer.println("</HTML>");		
 //		
-		System.out.println("Empresa " + nomeEmpresa + " cadastrada com sucesso");
+		System.out.println("Empresa " + nomeEmpresa + " cadastrada com sucesso");		
+		
+		//definindo um atributo e seu valor na requisição
+		request.setAttribute("empresa", empresa.getNome());
 		
 		//Call the JSP - Java Server Page
 		
 		// A RequestDispatcher object can be used to forward a request to the resource or to include the resource in a response.
-		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");
-		request.setAttribute("empresa", empresa.getNome());		
-		rd.forward(request, response);
+//		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");		
+//		rd.forward(request, response);
+		
+		/**
+		 * Aula 06 - Atividade 05 - Redirecionamento pelo navegador
+		 * 
+		 * - Resolvendo o seguinte problema: os Servlets foram chamados, o arquivo JSP e tudo isso em uma mesma requisição. 
+		 * Trata-se de uma má prática que gera problemas em nossa aplicação, como o cadastro de dados idênticos em nosso 
+		 * banco de dados. 
+		 * - Uso do Redirecionamento Client Side, isto é, "do lado do cliente". Quando utilizamos despachadores de um Servlet 
+		 * para outro, esse processo é denominado Redirecionamento Server Side, "do lado do servidor;
+		 * - Uso do objeto response e do método sendRedirect() para devolver uma resposta para o navegador com um novo endereço, 
+		 * o endereço do servlet de listaEmpresasServlet e assim o navegador fará uma nova requisição para o novo endereço. 
+		 * - OBS.1: Após uma operação de escrita ser realiza, podemos redirecionar o navegador que realizará uma nova requisição, 
+		 * no caso de leitura. Se o usuário pressionar F5, o navegador repetirá a operação de leitura.
+		 * - OBS.2: O código de resposta para redirecionamento HTTP é 30X (301 ou 302).  
+		
+		 */
+		
+		//Redirecionando pelo navegador
+		//Sends a temporary redirect response to the client using the specified redirect location URL and clears the buffer. 
+		//The buffer will be replaced with the data set by this method.
+		response.sendRedirect("listaEmpresas");
+		
+		
 		
 	}
 	
