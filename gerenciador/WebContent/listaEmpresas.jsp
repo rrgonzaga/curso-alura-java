@@ -15,8 +15,7 @@
 <!-- 		* Refatorando o código usando Taglib, EL e tags HTML. -->
 <!-- 		* JSTL é a biblioteca padrão de tags do Java, mas existem outras bibliotecas. Por exemplo, o Spring MVC possui a sua própria. -->
 <!-- 		* JSTL não vem embutido com o Tomcat. Precisamos adicionar a lib do JSTL para poder usá-la.  -->
-	
-	
+
 	<div>
 		<c:if test="${not empty empresa}">
 			<span>Empresa ${empresa} cadastrada com sucesso!</span>
@@ -28,7 +27,10 @@
 	</div>
 	<ul>
 		<c:forEach items="${empresas}" var="empresa">			
-			<li>${empresa.nome}, data de abertura: <fmt:formatDate value="${empresa.dataAbertura}" pattern="dd/MM/yyyy"/></li>
+			<li>
+				${empresa.nome}, data de abertura: <fmt:formatDate value="${empresa.dataAbertura}" pattern="dd/MM/yyyy"/>
+				<a href="/gerenciador/removeEmpresa?id=${empresa.id}">remove</a>
+			</li>
 		</c:forEach>	
 	</ul>
 	
