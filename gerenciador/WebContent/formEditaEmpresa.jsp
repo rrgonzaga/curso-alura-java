@@ -23,6 +23,8 @@
 	 
 	<form action="${linkServletAlteraEmpresa}" method="post">
 		<div>
+		<input type="hidden" name="id" value="${empresa.id}" />
+		
 		<label> Nome: </label>
 		<input type="text" name="nome" value="${empresa.nome}"/>
 		</div>
