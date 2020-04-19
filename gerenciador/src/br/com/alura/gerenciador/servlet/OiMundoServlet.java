@@ -9,8 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//@WebServlet(urlPatterns="/oi")
+@WebServlet(urlPatterns="/oi", loadOnStartup=1)
 public class OiMundoServlet extends HttpServlet {
+	
+	public OiMundoServlet() {
+		System.out.println("Criando Oi Mundo Servlet"); 
+	}
 	
 	/**
 	 * Aula 02 - Atividade 01 - Meu primeiro servlet
