@@ -12,7 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.alura.gerenciador.model.Banco;
 import br.com.alura.gerenciador.model.Empresa;
 
-
+/**
+ * @author Rodrigo
+ * A classe AlteraEmpresa faz parte da camada do Controller. 
+ * Ela também é chamada de Action/Ação e representa uma "extensão" do controlador central.
+ */
 public class AlteraEmpresa {
 	
 	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
