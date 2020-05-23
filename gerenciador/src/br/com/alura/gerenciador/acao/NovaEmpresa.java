@@ -1,4 +1,4 @@
-package br.com.alura.gerenciador.servlet;
+package br.com.alura.gerenciador.acao;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -6,8 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,25 +13,14 @@ import br.com.alura.gerenciador.model.Banco;
 import br.com.alura.gerenciador.model.Empresa;
 
 
-/**
- * 
- * @author Rodrigo
- * Aula 07 - Completando o CRUD - Atividade 07 - Alterando empresa
- * 
- */
-@WebServlet("/alteraEmpresa")
-public class AlteraEmpresaServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class NovaEmpresa {
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			
+		System.out.println("Criando empresa");
 		
-		System.out.println("alterando empresa");
-		
-		String paramId = request.getParameter("id");
 		String nomeEmpresa = request.getParameter("nome");
 		String strDataAbertura = request.getParameter("dataAbertura");
-		
-		Integer id = Integer.valueOf(paramId);
 		
 		Date dataAbertura = null;
 		
@@ -47,15 +34,22 @@ public class AlteraEmpresaServlet extends HttpServlet {
 			throw new ServletException(e);
 		}
 		
-		System.out.println("id empresa: " + id);		
-		
-		Banco banco = new Banco();
-		
-		Empresa empresa = banco.buscaEmpresaPorId(id);
+		Empresa empresa = new Empresa();
 		empresa.setNome(nomeEmpresa);
 		empresa.setDataAbertura(dataAbertura);
 		
-		//Enviando um redirect para o navegador fazer uma nova requisição para o servlet de listar empresas 
-		response.sendRedirect("listaEmpresas");		
+		Banco banco = new Banco();
+		banco.adiciona(empresa);		
+
+		System.out.println("Empresa " + nomeEmpresa + " cadastrada com sucesso");		
+		
+		//definindo um atributo e seu valor na requisição
+		request.setAttribute("empresa", empresa.getNome());		
+		
+		//Redirecionando pelo navegador
+		//Sends a temporary redirect response to the client using the specified redirect location URL and clears the buffer. 
+		//The buffer will be replaced with the data set by this method.
+		response.sendRedirect("entrada?acao=listaEmpresas");			
 	}
+
 }

@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<c:url value="/alteraEmpresa" var="linkServletAlteraEmpresa" />
+<c:url value="/entrada?acao=alteraEmpresa" var="linkAlteraEmpresa" />
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +21,7 @@
 		* Imprimindo o valor de uma variável da taglib core no body do HTML usando EL - Expression Language 
 	-->
 	 
-	<form action="${linkServletAlteraEmpresa}" method="post">
+	<form action="${linkAlteraEmpresa}" method="post">
 		<div>
 		<input type="hidden" name="id" value="${empresa.id}" />
 		
