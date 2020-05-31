@@ -19,7 +19,7 @@ import br.com.alura.gerenciador.model.Empresa;
  */
 public class NovaEmpresa {
 	
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
 		System.out.println("Criando empresa");
 		
@@ -48,12 +48,9 @@ public class NovaEmpresa {
 		System.out.println("Empresa " + nomeEmpresa + " cadastrada com sucesso");		
 		
 		//definindo um atributo e seu valor na requisição
-		request.setAttribute("empresa", empresa.getNome());		
-		
-		//Redirecionando pelo navegador
-		//Sends a temporary redirect response to the client using the specified redirect location URL and clears the buffer. 
-		//The buffer will be replaced with the data set by this method.
-		response.sendRedirect("entrada?acao=listaEmpresas");			
+		request.setAttribute("empresa", empresa.getNome());				
+			
+		return"redirect:entrada?acao=listaEmpresas";			
 	}
 
 }

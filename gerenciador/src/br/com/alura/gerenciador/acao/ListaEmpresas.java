@@ -25,6 +25,7 @@ public class ListaEmpresas {
 		Banco banco = new Banco();
 		List<Empresa> empresas = banco.getEmpresas();
 		
+		//Anexa um atributo na requisição
 		request.setAttribute("empresas", empresas);
 		
 		return "forward:/listaEmpresas.jsp";

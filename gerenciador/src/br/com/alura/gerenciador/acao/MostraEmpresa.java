@@ -17,7 +17,7 @@ import br.com.alura.gerenciador.model.Empresa;
  */
 public class MostraEmpresa {
 	
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("Mostrando dados da empresa");
 		
@@ -31,11 +31,8 @@ public class MostraEmpresa {
 		
 		//Anexa um atributo na requisição
 		request.setAttribute("empresa", empresa);
-		//defini para o despachador (dispatcher) para onde ele tem que dispachar a requisição
-		RequestDispatcher rd = request.getRequestDispatcher("/formEditaEmpresa.jsp");
-		//envia de fato a requisição
-		rd.forward(request, response);
 		
+		return "forward:/formEditaEmpresa.jsp";	
 		
 	}
 

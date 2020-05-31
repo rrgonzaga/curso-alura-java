@@ -36,23 +36,28 @@ public class UnicaEntradaServlet extends HttpServlet {
 			
 		} else if(paramAcao.equals("mostraEmpresa")) {					
 			MostraEmpresa mostraEmpresa = new MostraEmpresa();
-			mostraEmpresa.executa(request, response);	
+			nome = mostraEmpresa.executa(request, response);	
 			
 		} else if(paramAcao.equals("alteraEmpresa")) {			
 			AlteraEmpresa alteraEmpresa = new AlteraEmpresa();
-			alteraEmpresa.executa(request, response);
+			nome = alteraEmpresa.executa(request, response);
 			
 		} else if(paramAcao.equals("novaEmpresa")) {			
 			NovaEmpresa novaEmpresa = new NovaEmpresa();
-			novaEmpresa.executa(request, response);
+			nome = novaEmpresa.executa(request, response);
 		}
 		
 		String[] tipoEntradaEndereco = nome.split(":");
 		
 		if(tipoEntradaEndereco[0].equals("forward")) {
-			RequestDispatcher rd = request.getRequestDispatcher(tipoEntradaEndereco[1]);		
+			//define para o despachador (dispatcher) para onde ele tem que dispachar a requisição
+			RequestDispatcher rd = request.getRequestDispatcher(tipoEntradaEndereco[1]);
+			//envia de fato a requisição
 			rd.forward(request, response);
 		} else {
+			//Sends a temporary redirect response to the client using the specified redirect location URL and clears the buffer. 
+			//The buffer will be replaced with the data set by this method.
+			//Obs.: Enviando um redirect para o navegador fazer uma nova requisição para o servlet de entrada única, ou seja, o controlador central.  
 			response.sendRedirect(tipoEntradaEndereco[1]);
 		}
 		
