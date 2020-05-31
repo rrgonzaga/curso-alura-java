@@ -18,7 +18,7 @@ import br.com.alura.gerenciador.model.Empresa;
  */
 public class ListaEmpresas {
 	
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("Listando empresa");
 		
@@ -27,9 +27,8 @@ public class ListaEmpresas {
 		
 		request.setAttribute("empresas", empresas);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas.jsp");
+		return "forward:/listaEmpresas.jsp";
 		
-		rd.forward(request, response);
 	}
 
 }
