@@ -32,7 +32,7 @@ public class MostraEmpresa {
 		//Anexa um atributo na requisição
 		request.setAttribute("empresa", empresa);
 		
-		return "forward:/formEditaEmpresa.jsp";	
+		return "forward:formEditaEmpresa.jsp";	
 		
 	}
 
