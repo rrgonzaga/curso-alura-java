@@ -13,7 +13,7 @@ import br.com.alura.gerenciador.model.Banco;
  * A classe RemoveEmpresa faz parte da camada do Controller. 
  * Ela também é chamada de Action/Ação e representa uma "extensão" do controlador central.
  */
-public class RemoveEmpresa {
+public class RemoveEmpresa implements Acao {
 	
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
@@ -26,7 +26,7 @@ public class RemoveEmpresa {
 		Banco banco = new Banco();
 		banco.removeEmpresa(id);		
 		
-		return "redirect:entrada?acao=listaEmpresas";			
+		return "redirect:entrada?acao=ListaEmpresas";			
 	}
 
 }

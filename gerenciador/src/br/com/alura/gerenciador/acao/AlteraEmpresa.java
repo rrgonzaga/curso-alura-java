@@ -17,7 +17,7 @@ import br.com.alura.gerenciador.model.Empresa;
  * A classe AlteraEmpresa faz parte da camada do Controller. 
  * Ela também é chamada de Action/Ação e representa uma "extensão" do controlador central.
  */
-public class AlteraEmpresa {
+public class AlteraEmpresa implements Acao {
 	
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
@@ -50,7 +50,7 @@ public class AlteraEmpresa {
 		empresa.setDataAbertura(dataAbertura);
 		
 		//Enviando um redirect para o navegador fazer uma nova requisição para o servlet de listar empresas 
-		return "redirect:entrada?acao=listaEmpresas";			
+		return "redirect:entrada?acao=ListaEmpresas";			
 	}
 
 }

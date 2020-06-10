@@ -17,7 +17,7 @@ import br.com.alura.gerenciador.model.Empresa;
  * A classe MostraFormNovaEmpresa faz parte da camada do Controller. 
  * Ela também é chamada de Action/Ação e representa uma "extensão" do controlador central.
  */
-public class MostraFormNovaEmpresa {
+public class MostraFormNovaEmpresa implements Acao {
 	
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			

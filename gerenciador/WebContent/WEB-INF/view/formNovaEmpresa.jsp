@@ -23,7 +23,7 @@
 	 
 	<form action="${linkNovaEmpresa}" method="post">
 		<div>		
-		<input type=hidden name="acao" value="novaEmpresa">		
+		<input type=hidden name="acao" value="NovaEmpresa">		
 		<label> Nome: </label>
 		<input type="text" name="nome"/>
 		</div>
