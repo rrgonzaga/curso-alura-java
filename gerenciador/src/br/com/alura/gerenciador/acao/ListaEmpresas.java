@@ -1,6 +1,7 @@
 package br.com.alura.gerenciador.acao;
 
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -43,8 +44,15 @@ public class ListaEmpresas implements Acao {
 //
 //				 this.charAt(k)-anotherString.charAt(k)
 		
-		//Ordenando as empresas por nome 
-		empresas.sort((e1,e2)->{ return e1.getNome().compareTo(e2.getNome()); });
+		//Forma 1: Ordenando as empresas por nome, ordem crescente
+		//empresas.sort((e1,e2)->{ return e1.getNome().compareTo(e2.getNome()); });		
+		//empresas.sort((e1,e2) -> e1.getNome().compareTo(e2.getNome()));
+		
+		//Forma 2: Ordenando as empresas por nome, ordem decrescente.
+		empresas.sort((e1, e2) -> e2.getNome().compareTo(e1.getNome()));
+		
+		//Forma 3: Ordenando as empresas por nome, ordem decrescente.
+		//empresas.sort(Comparator.comparing(Empresa :: getNome, Comparator.reverseOrder()));
 		
 		//Anexa um atributo na requisição
 		request.setAttribute("empresas", empresas);
