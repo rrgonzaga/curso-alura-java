@@ -26,6 +26,7 @@ public class Banco {
 		
 		Banco.usuarios.add(usr01);
 		Banco.usuarios.add(usr02);
+		
 	}
 
 	public void adiciona(Empresa empresa) {
@@ -69,6 +70,16 @@ public class Banco {
 			if(empresa.getId() == id) {
 				return empresa;
 			}			
+		}
+		
+		return null;
+	}
+
+	public Usuario existeUsuario(String login, String senha) {		
+		for(Usuario usuario: usuarios) {
+			if(usuario.ehIgual(login, senha)) {
+				return usuario;
+			}
 		}
 		
 		return null;

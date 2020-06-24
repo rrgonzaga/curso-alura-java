@@ -6,6 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.alura.gerenciador.model.Banco;
+import br.com.alura.gerenciador.model.Usuario;
+
 /**
  * @author Rodrigo
  * A classe Login faz parte da camada do Controller. 
@@ -22,11 +25,18 @@ public class Login implements Acao {
 		
 		System.out.println("Logando " + login);
 		
+		Banco banco = new Banco();
 		
+		Usuario usuario = banco.existeUsuario(login,senha);
 		
+		if(usuario != null) {
+			System.out.println("Usuário existe.");
+			return "redirect:entrada?acao=ListaEmpresas";
+		} else {
+			System.out.println("Login ou senha inválido");
+			return "redirect:entrada?acao=MostraFormLogin";
+		}
 		
-		
-		return "redirect:entrada?acao=ListaEmpresas";
 	}
 
 }
