@@ -17,6 +17,9 @@
 <!-- 		* JSTL não vem embutido com o Tomcat. Precisamos adicionar a lib do JSTL para poder usá-la.  -->
 
 	<div>
+		<span>Usuário logado: ${usuarioLogado.login}</span>
+	</div>
+	<div>
 		<c:if test="${not empty empresa}">
 			<span>Empresa ${empresa} cadastrada com sucesso!</span>
 		</c:if>
