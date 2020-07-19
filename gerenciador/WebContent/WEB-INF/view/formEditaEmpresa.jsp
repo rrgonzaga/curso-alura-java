@@ -20,6 +20,8 @@
 		* Uso da taglib core url e atribuindo o value da url a uma variável; 
 		* Imprimindo o valor de uma variável da taglib core no body do HTML usando EL - Expression Language 
 	-->
+	
+	<c:import url="logout-parcial.jsp" />
 	 
 	<form action="${linkAlteraEmpresa}" method="post">
 		<div>

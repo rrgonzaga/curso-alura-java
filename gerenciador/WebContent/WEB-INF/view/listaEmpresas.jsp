@@ -16,6 +16,8 @@
 <!-- 		* JSTL é a biblioteca padrão de tags do Java, mas existem outras bibliotecas. Por exemplo, o Spring MVC possui a sua própria. -->
 <!-- 		* JSTL não vem embutido com o Tomcat. Precisamos adicionar a lib do JSTL para poder usá-la.  -->
 
+	<c:import url="logout-parcial.jsp" />	
+	
 	<div>
 		<span>Usuário logado: ${usuarioLogado.login}</span>
 	</div>
