@@ -16,3 +16,8 @@ Códigos fonte dos cursos da Alura de Java
 - Usamos a HttpSession para guardar dados sobre o usuário (login, permissões, carrinho de compra, config. de preferencias);
 - A HttpSession tem um ciclo de vida e será automaticamente invalidada;
 
+# curso: Servlet parte 2: Autenticacão, autorização e o padrão MVC
+## Aula 05: Aplicando filtros
+- O filtro é como uma porta que é colocada entre o navegador e o Servlet, e ele permite filtrar as requisições. Da mesma forma que conseguimos mapear uma requisição para um Servlet, conseguimos mapear uma requisição para um filtro - no entanto, o filtro tem uma responsabilidade a mais: ele consegue parar uma requisição. Usamos o FilterChain para mandar a requisição para frente.
+
+
