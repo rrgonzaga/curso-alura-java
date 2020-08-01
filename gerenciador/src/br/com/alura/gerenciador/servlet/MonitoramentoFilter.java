@@ -18,6 +18,8 @@ public class MonitoramentoFilter implements Filter {
 		
 		long tempoInicial = System.currentTimeMillis();
 		
+		System.out.println("MonitoramentoFilter");
+		
 		String acao = request.getParameter("acao");
 		
 		//executa a ação
