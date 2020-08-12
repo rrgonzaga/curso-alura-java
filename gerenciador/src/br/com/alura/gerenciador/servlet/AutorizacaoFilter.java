@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class AutorizacaoFilter
  */
-@WebFilter("/entrada")
+//@WebFilter("/entrada")
 public class AutorizacaoFilter implements Filter {
 	
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {

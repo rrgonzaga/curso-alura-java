@@ -19,5 +19,14 @@ Códigos fonte dos cursos da Alura de Java
 # curso: Servlet parte 2: Autenticacão, autorização e o padrão MVC
 ## Aula 05: Aplicando filtros
 - O filtro é como uma porta que é colocada entre o navegador e o Servlet, e ele permite filtrar as requisições. Da mesma forma que conseguimos mapear uma requisição para um Servlet, conseguimos mapear uma requisição para um filtro - no entanto, o filtro tem uma responsabilidade a mais: ele consegue parar uma requisição. Usamos o FilterChain para mandar a requisição para frente.
+- O que foi aprendido:
+- Um Filter e Servlet são bem parecidos;
+- Comparado com Servlet, o Filter tem o poder de parar o fluxo;
+- Para escrever um filtro, devemos implementar a interface javax.servlet.Filter;
+- Para mapear o filtro, usamos a anotação @WebFilter ou o web.xml;
+- Vários filtros podem funcionar numa cadeia (um chama o próximo, mas todos são independentes);
+- Para definir a ordem de execução, devemos mapear os filtros no web.xml;
+- Um filtro recebe como parâmetro, do método doFilter, um ServletRequest e um ServletResponse, ambos, são interfaces mais genéricas do que HttpServletRequeest e HttpServletResponse;
+- Para chamar o próximo filtro na cadeia, usamos o objeto FilterChain;
 
 
