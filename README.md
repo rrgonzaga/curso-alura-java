@@ -29,4 +29,9 @@ Códigos fonte dos cursos da Alura de Java
 - Um filtro recebe como parâmetro, do método doFilter, um ServletRequest e um ServletResponse, ambos, são interfaces mais genéricas do que HttpServletRequeest e HttpServletResponse;
 - Para chamar o próximo filtro na cadeia, usamos o objeto FilterChain;
 
+# curso: Servlet parte 2: Autenticacão, autorização e o padrão MVC
+## Aula 06: Introdução ao Web Service
+- Web Service é uma funcionalidade que conseguimos chamar remotamente através do protocolo HTTP, usando, por exemplo, o Java Servet, e que devolve os dados em um formato genérico, como JSON ou XML. Quando falamos de web services, temos que dar suporte aos vários tipos de clientes, não apenas navegadores.
+
+
 
