@@ -32,6 +32,17 @@ Códigos fonte dos cursos da Alura de Java
 # curso: Servlet parte 2: Autenticacão, autorização e o padrão MVC
 ## Aula 06: Introdução ao Web Service
 - Web Service é uma funcionalidade que conseguimos chamar remotamente através do protocolo HTTP, usando, por exemplo, o Java Servet, e que devolve os dados em um formato genérico, como JSON ou XML. Quando falamos de web services, temos que dar suporte aos vários tipos de clientes, não apenas navegadores.
+- O que foi aprendido:
+- Que um web service usa HTML, JSON ou XML como retorno; 
+- Que um web service oferece alguma funcionalidade para seu cliente; 
+- Que um web service é útil quando precisa oferecer uma funcionalidade para cliente diferentes (browsers, celulares, etc.); 
+- Que para o web service não importa se o cliente foi escrito em Java, C# ou outra linguagem, pois usamos um protocolo e formatos independentes da plataforma, o HTTP geralmente;
+- Como gerar JSON no código Java através de GSON;
+- Como gerar XML no código Java através de XStream;
+- Como escrever um web service através de um HttpServlet;
+- Como criar um cliente HTTP a partir do código Java, usando a biblioteca Apache HttpClient; 
+- Como gerar JSON ou XML a partir do cabeçalho Accept da requisição.
+
 
 
 
