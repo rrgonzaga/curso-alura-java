@@ -11,7 +11,7 @@ public class ClienteWebService {
 		
 		String resposta = Request
 		.Post("http://localhost:8080/gerenciador/empresas")
-		.addHeader("Accept","application/xml")
+		.addHeader("Accept","application/json")
 	    //.bodyForm(Form.form().add("username",  "vip").add("password",  "secret").build())
 	    .execute()
 	    .returnContent()
