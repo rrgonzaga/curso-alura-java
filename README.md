@@ -43,6 +43,21 @@ Códigos fonte dos cursos da Alura de Java
 - Como criar um cliente HTTP a partir do código Java, usando a biblioteca Apache HttpClient; 
 - Como gerar JSON ou XML a partir do cabeçalho Accept da requisição.
 
+# curso: Servlet parte 2: Autenticacão, autorização e o padrão MVC
+## Aula 07: Deploy no Jetty
+- O que foi aprendido:
+- A disponibilizar a nossa aplicação no servlet container Jetty; 
+- Que Servlet é uma especificação; 
+- Que a especificação Servlet faz parte do Java EE/Jakarta EE; 
+- Que, ao usar Servlet, programamos independentemente do servidor/container; 
+- A diferença entre servlet container e application server, onde os Application Servers, além de mapear requisições, são muito mais robustos e oferecem um número maior de recursos, diferentemente dos Servlet Containers, que apenas mapeiam as requisições do cliente.
+
+# curso: Spring MVC I: Criando aplicações web
+## Aula 01: Começando com Spring MVC
+
+
+
+
 
 
 
