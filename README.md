@@ -54,6 +54,9 @@ Códigos fonte dos cursos da Alura de Java
 
 # curso: Spring MVC I: Criando aplicações web
 ## Aula 01: Começando com Spring MVC
+- Criando o projeto casadocodigo utilizando a ferramenta JBoss Forge. A grande vantagem ao utilizarmos o JBoss Forge é agilizar a configuração inicial do projeto, permitindo ganhar tempo indo direto para o código. O JBoss Forge é um gerador de projetos Java, e ele gera toda a estrutura base do projeto integrada ao Maven. Além disso, configura dependências (bibliotecas e frameworks), estrutura de pastas e gera configurações iniciais que normalmente envolve arquivos XML.
+
+
 
 
 
