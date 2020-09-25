@@ -11,11 +11,13 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {		
+		//definindo que a classe AppWebConfiguration será usada como classe de configuração do servlet do SpringMVC
 		return new Class[] {AppWebConfiguration.class};
 	}
 
 	@Override
-	protected String[] getServletMappings() {		
+	protected String[] getServletMappings() {	
+		//Estamos definindo que o servlet do SpringMVC atenderá as requisições a partir da raiz do nosso projeto (/)
 		return new String[] {"/"};
 	}
 
