@@ -11,10 +11,15 @@ import br.com.casadocodigo.loja.controllers.HomeController;
 @ComponentScan(basePackageClasses= {HomeController.class})
 public class AppWebConfiguration {
 	
-	/*A anotação @Bean é para que o retorno da chamada deste método possa ser gerenciada pelo SpringMVC, 
+	/*
+	 * A anotação @Bean é para que o retorno da chamada deste método possa ser gerenciada pelo SpringMVC, 
 	 * sem ela nossa configuração não funciona.
 	 */
 	
+	/**
+	 * Método responsável por indicar em qual diretório as views estão disponíveis
+	 * @return
+	 */
 	@Bean
 	public InternalResourceViewResolver internalResourceViewResolver() {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
