@@ -25,9 +25,10 @@
 			<div>
 				<label>${tipoPreco}</label>
 				<input type="text" name="precos[${status.index}].valor">
-				<input type="hidden" name="precos[${status.index}].tipo">
+				<input type="hidden" name="precos[${status.index}].tipo" value="${tipoPreco}">
 			</div>		
 		</c:forEach>		
+		<input type="submit" value="Cadastrar">
 	</form>
 </body>
 </html>
