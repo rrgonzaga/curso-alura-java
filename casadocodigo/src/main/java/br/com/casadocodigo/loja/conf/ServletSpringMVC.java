@@ -1,5 +1,8 @@
 package br.com.casadocodigo.loja.conf;
 
+import javax.servlet.Filter;
+
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -19,6 +22,15 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 	protected String[] getServletMappings() {	
 		//Estamos definindo que o servlet do SpringMVC atenderá as requisições a partir da raiz do nosso projeto (/)
 		return new String[] {"/"};
+	}
+	
+	@Override
+	protected Filter[] getServletFilters() {
+		CharacterEncodingFilter encondingFilter = new CharacterEncodingFilter();
+		encondingFilter.setEncoding("UTF-8");
+		
+		return new Filter[] {encondingFilter};
+		
 	}
 
 }
