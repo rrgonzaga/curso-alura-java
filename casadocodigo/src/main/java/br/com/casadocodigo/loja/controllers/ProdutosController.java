@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.casadocodigo.loja.daos.ProdutoDAO;
 import br.com.casadocodigo.loja.models.Produto;
@@ -26,12 +27,22 @@ public class ProdutosController {
 		return modelAndView;
 	}
 	
+	/**
+	 * 
+	 * @param produto
+	 * @param redirectAttributes
+	 * @return
+	 * @note O Flash Scoped é um escopo onde os objetos que adicionamos nele através do método addFlashAttribute ficam 
+	 * disponíveis de um request para outro, enquanto o navegador executa um redirect (usando o código de status 302).
+	 */
 	@RequestMapping(method=RequestMethod.POST)
-	public String gravar(Produto produto) {
+	public ModelAndView gravar(Produto produto, RedirectAttributes redirectAttributes) {
 		System.out.println("produto: " + produto);
 		produtoDAO.gravar(produto);
+		redirectAttributes.addFlashAttribute("sucesso", "Produto cadastrado com sucesso!");
 		
-		return "produtos/ok";
+		//Boa prática: para evitar qualquer problema de dados reenviados, realizamos um redirect após o envio de um formulário com POST
+		return new ModelAndView("redirect:produtos");
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
