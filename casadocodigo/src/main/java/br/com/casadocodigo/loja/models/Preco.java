@@ -6,7 +6,7 @@ import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-//A anotação @Embeddable permite que a classe seja persistida, desde que ela seja um atributo de uma entidade. 
+//A anotação @Embeddable permite que a classe seja persistida, desde que ela seja um atributo de uma outra entidade. 
 @Embeddable
 public class Preco {
 	private BigDecimal valor;
