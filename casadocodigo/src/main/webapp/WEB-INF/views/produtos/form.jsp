@@ -13,24 +13,29 @@
 	<form:form action="${s:mvcUrl('PC#gravar').build()}" method="post" commandName="produto">
 		<div>
 			<label>Título</label>
-			<input type="text" name="titulo">
-			<form:errors path="titulo"></form:errors>
+			<form:input type="text" path="titulo"/>
+			<form:errors path="titulo"/>
 		</div>
 		<div>
 			<label>Descrição</label>
-			<textarea rows="10" cols="20" name="descricao"></textarea>
-			<form:errors path="descricao"></form:errors>
+			<form:textarea rows="10" cols="20" path="descricao"/>
+			<form:errors path="descricao"/>
 		</div>
 		<div>
 			<label>Páginas</label>
-			<input type="text" name="paginas">
-			<form:errors path="paginas"></form:errors>
+			<form:input type="text" path="paginas"/>
+			<form:errors path="paginas"/>
+		</div>
+		<div>
+			<label>Data de Lançamento</label>
+			<form:input type="text" path="dataLancamento"/>
+			<form:errors path="dataLancamento"/>
 		</div>
 		<c:forEach items="${tipos}" var="tipoPreco" varStatus="status">		
 			<div>
 				<label>${tipoPreco}</label>
-				<input type="text" name="precos[${status.index}].valor">
-				<input type="hidden" name="precos[${status.index}].tipo" value="${tipoPreco}">
+				<form:input type="text" path="precos[${status.index}].valor"/>
+				<form:input type="hidden" path="precos[${status.index}].tipo" value="${tipoPreco}"/>
 			</div>		
 		</c:forEach>		
 		<input type="submit" value="Cadastrar">
