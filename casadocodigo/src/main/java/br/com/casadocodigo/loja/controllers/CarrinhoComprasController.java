@@ -18,6 +18,7 @@ import br.com.casadocodigo.loja.models.TipoPreco;
 /**
  * Ctrl + 1: adiciona tipo e nome da variável depois de ter digitado new em alguma classe
  * Ctrl + Shift + o: Faz o import das classes.
+ * Ctrl + Shift + r: Abre a janela para escolhermos algum recurso/arquivo do projeto
  * @author Rodrigo
  *
  */
@@ -52,6 +53,13 @@ public class CarrinhoComprasController {
 		CarrinhoItem carrinhoItem = new CarrinhoItem(produto, tipoPreco);
 		
 		return carrinhoItem;
+	}
+	
+	@RequestMapping("/remover")
+	public ModelAndView remover(Integer produtoId, TipoPreco tipoPreco) {
+		
+		carrinho.remover(produtoId, tipoPreco);		
+		return new ModelAndView("redirect:/carrinho");		
 	}
 
 }

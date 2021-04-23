@@ -32,6 +32,10 @@ public class CarrinhoItem {
 		this.tipoPreco = tipoPreco;
 	}
 	
+	public BigDecimal getTotal(int quantidade) {
+		return this.getPreco().multiply(new BigDecimal(quantidade));
+	}	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -59,9 +63,5 @@ public class CarrinhoItem {
 			return false;
 		return true;
 	}
-
-	public BigDecimal getTotal(int quantidade) {
-		return this.getPreco().multiply(new BigDecimal(quantidade));
-	}	
 
 }
