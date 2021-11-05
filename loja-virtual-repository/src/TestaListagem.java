@@ -4,8 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class TestaListagem {
-	
+public class TestaListagem {	
 	
 	public static void main(String[] args) throws SQLException {
 		
@@ -23,9 +22,7 @@ public class TestaListagem {
 			String descricao = rs.getString("descricao");
 			
 			System.out.println("id: " + id + ", nome: " + nome + ", descricao: " + descricao);
-		}	
-		
-		
+		}		
 		
 		System.out.println("Fechando conexão!");
 		connection.close();
