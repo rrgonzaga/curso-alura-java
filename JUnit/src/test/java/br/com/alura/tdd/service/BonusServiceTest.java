@@ -4,6 +4,7 @@ import br.com.alura.tdd.modelo.Funcionario;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,29 +12,22 @@ import static org.junit.jupiter.api.Assertions.*;
 class BonusServiceTest {
 
     //Se 10% do salário do funcionário for maior que 1.000,00, não recebe bonus
-    @Test
-    void bonusZeroCasoDezPorcentoSalarioMaiorQueMilReais() {
-        BonusService bonusService = new BonusService();
-        Funcionario funcionario = new Funcionario("Rodrigo", LocalDate.of(2022,3,1),new BigDecimal(10500));
-        BigDecimal valorBonus = bonusService.calcularBonus(funcionario);
-
-        assertEquals(new BigDecimal("0.00"),valorBonus);
-    }
 
     @Test
-    void bonusDeveLancarExcecaoParaSalarioMaiorQueDezMil_E_QuinhentosReais() {
+    void bonusDeveLancarExcecaoParaSalarioMaiorQueDezMilReais() {
+        final BigDecimal valorMaxDezPorcento = new BigDecimal("1000.00");
         BonusService bonusService = new BonusService();
         Funcionario funcionario = new Funcionario("Rodrigo", LocalDate.of(2022,3,1),new BigDecimal(10500.50));
         //Primeira opção do teste lançar uma exception
-        //assertThrows(IllegalArgumentException.class,() -> bonusService.calcularBonus(funcionario));
+        assertThrows(IllegalArgumentException.class,() -> bonusService.calcularBonus(funcionario));
 
         //Segunda opção do teste lançar uma exception e comparar a mensagem da exception
-        try {
-            BigDecimal bonus = bonusService.calcularBonus(funcionario);
-            fail("Falhou porque não lançou a exception!");
-        } catch (Exception e) {
-            assertEquals("Funcionario com salário maior que 10.500,00 reais",e.getMessage());
-        }
+//        try {
+//            BigDecimal bonus = bonusService.calcularBonus(funcionario);
+//            fail("Falhou porque não lançou a exception!");
+//        } catch (Exception e) {
+//            assertEquals("10% do salário do funcionário é maior que " + NumberFormat.getCurrencyInstance().format(valorMaxDezPorcento),e.getMessage());
+//        }
 
     }
 
@@ -44,6 +38,7 @@ class BonusServiceTest {
         BigDecimal valorBonus = bonusService.calcularBonus(funcionario);
 
         assertTrue(valorBonus.compareTo(BigDecimal.ZERO) > 0);
+        assertEquals(new BigDecimal("750.05"), valorBonus);
     }
 
     @Test
