@@ -10,7 +10,6 @@ public class Orcamento {
         this.valor = valor;
         this.quantidadeItens = quantidadeItens;
     }
-
     public BigDecimal getValor() {
         return valor;
     }
