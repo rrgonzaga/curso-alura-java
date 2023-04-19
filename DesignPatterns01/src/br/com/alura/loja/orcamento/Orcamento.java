@@ -1,11 +1,13 @@
 package br.com.alura.loja.orcamento;
 
+import br.com.alura.loja.enumerations.Situacao;
+
 import java.math.BigDecimal;
 
 public class Orcamento {
     private BigDecimal valor;
     private Integer quantidadeItens;
-    private String situacao;
+    private Situacao situacao;
 
     public Orcamento(BigDecimal valor, Integer quantidadeItens) {
         this.valor = valor;
@@ -19,21 +21,23 @@ public class Orcamento {
         return quantidadeItens;
     }
 
-    public String getSituacao() {
+    public Situacao getSituacao() {
         return this.situacao;
     }
-
+    public void setSituacao(Situacao situacao) {
+        this.situacao = situacao;
+    }
     public void aplicarDescontoExtra() {
         BigDecimal valorDescExtra = BigDecimal.ZERO;
-        if (situacao.equals("EM_ANALISE")) {
+        if (Situacao.EM_ANALISE.equals(this.situacao)) {
             valorDescExtra = new BigDecimal("0.05");
-        } else if (situacao.equals("APROVADO")) {
+        } else if (Situacao.APROVADO.equals(this.situacao)) {
             valorDescExtra = new BigDecimal("0.02");
         }
 
         this.valor = this.valor.subtract(this.valor.multiply(valorDescExtra));
     }
     public void aprovar() {
-        this.situacao = "APROVADO";
+        this.situacao = Situacao.APROVADO;
     }
 }
