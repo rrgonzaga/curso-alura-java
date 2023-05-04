@@ -1,8 +1,12 @@
 package br.com.alura.loja.enumerations;
 
 public enum Situacao {
+    EM_ELABORACAO ("Em elaboração"),
+    FINALIZADO("Finalizado"),
+    ENCERRADO ("Encerrado"),
     EM_ANALISE ("Em análise"),
-    APROVADO ("Aprovado");
+    APROVADO ("Aprovado"),
+    REPROVADO ("Reprovado");
 
     private final String descricao;
 
