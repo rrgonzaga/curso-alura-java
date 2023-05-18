@@ -11,10 +11,27 @@ public class TestesSituacaoOrcamento {
         Orcamento segundoOrcamento = new Orcamento(new BigDecimal("1000"), 1);
         Orcamento terceiroOrcamento = new Orcamento(new BigDecimal("150"),1);
 
+        System.out.println("Situação inicial do primeiro orçamento: " + primeiroOrcamento.getSituacao().getDescricao());
+        System.out.println("Valor do desconto extra do primeiro orçamento: " + primeiroOrcamento.calcularValorDescontoExtra());
+        primeiroOrcamento.atualizarValorOrcamento();
+        System.out.println("Valor do primeiro orçamento: " + primeiroOrcamento.getValor());
         primeiroOrcamento.finalizar();
-        primeiroOrcamento.analisar();
-        primeiroOrcamento.aprovar();
         System.out.println("Situação do primeiro orçamento: " + primeiroOrcamento.getSituacao().getDescricao());
+        System.out.println("Valor do desconto extra do primeiro orçamento: " + primeiroOrcamento.calcularValorDescontoExtra());
+        primeiroOrcamento.atualizarValorOrcamento();
+        System.out.println("Valor do primeiro orçamento: " + primeiroOrcamento.getValor());
+        primeiroOrcamento.analisar();
+        System.out.println("Situação do primeiro orçamento: " + primeiroOrcamento.getSituacao().getDescricao());
+        System.out.println("Valor do desconto extra do primeiro orçamento: " + primeiroOrcamento.calcularValorDescontoExtra());
+        primeiroOrcamento.atualizarValorOrcamento();
+        System.out.println("Valor do primeiro orçamento: " + primeiroOrcamento.getValor());
+        primeiroOrcamento.aprovar();
+        System.out.println("Situação final do primeiro orçamento: " + primeiroOrcamento.getSituacao().getDescricao());
+        System.out.println("Valor do desconto extra do primeiro orçamento: " + primeiroOrcamento.calcularValorDescontoExtra());
+        primeiroOrcamento.atualizarValorOrcamento();
+        System.out.println("Valor final do primeiro orçamento: " + primeiroOrcamento.getValor());
+        System.out.println("-------------------------------------------------------------------------------------------");
+
 
         segundoOrcamento.finalizar();
         segundoOrcamento.analisar();

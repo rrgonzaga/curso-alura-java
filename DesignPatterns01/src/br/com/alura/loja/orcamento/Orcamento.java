@@ -27,7 +27,7 @@ public class Orcamento {
         return this.situacao;
     }
 
-    public void aplicarDescontoExtra() {
+    public BigDecimal calcularValorDescontoExtra() {
         BigDecimal valorDescExtra = BigDecimal.ZERO;
         if (Situacao.EM_ANALISE.equals(this.situacao)) {
             valorDescExtra = new BigDecimal("0.05");
@@ -35,7 +35,11 @@ public class Orcamento {
             valorDescExtra = new BigDecimal("0.02");
         }
 
-        this.valor = this.valor.subtract(this.valor.multiply(valorDescExtra));
+        return this.valor.multiply(valorDescExtra);
+    }
+
+    public void atualizarValorOrcamento() {
+        this.valor = this.valor.subtract(calcularValorDescontoExtra());
     }
     public void finalizar() {
         if (!Situacao.EM_ELABORACAO.equals(this.situacao)) {
