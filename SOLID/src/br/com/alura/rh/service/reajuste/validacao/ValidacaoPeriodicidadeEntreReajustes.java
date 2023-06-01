@@ -14,6 +14,7 @@ public class ValidacaoPeriodicidadeEntreReajustes implements ValidacaoReajuste {
      * Implementação do princípio de polimorfismo, ou seja, implementação do método
      * validar de forma diferente para cada implementação da interface ValidacaoReajuste
      */
+    @Override
     public void validar(Funcionario funcionario, BigDecimal aumento) {
         LocalDate dataUltimoReajuste = funcionario.getDataUltimoReajuste();
 
