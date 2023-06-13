@@ -10,35 +10,34 @@ public class TestesSituacaoOrcamento {
         Orcamento primeiroOrcamento = new Orcamento(new BigDecimal("200"), 6);
 
         System.out.println("Situação inicial do primeiro orçamento: " + primeiroOrcamento.getSituacao().getDescricao());
-        System.out.println("Valor do desconto extra do primeiro orçamento: " + primeiroOrcamento.calcularValorDescontoExtra());
-        primeiroOrcamento.atualizarValorOrcamento();
+        primeiroOrcamento.getSituacao().atualizarValorOrcamento(primeiroOrcamento);
         System.out.println("Valor do primeiro orçamento: " + primeiroOrcamento.getValor());
-        primeiroOrcamento.finalizar();
+        primeiroOrcamento.getSituacao().finalizar(primeiroOrcamento);
         System.out.println("Situação do primeiro orçamento: " + primeiroOrcamento.getSituacao().getDescricao());
-        System.out.println("Valor do desconto extra do primeiro orçamento: " + primeiroOrcamento.calcularValorDescontoExtra());
-        primeiroOrcamento.atualizarValorOrcamento();
+        primeiroOrcamento.getSituacao().atualizarValorOrcamento(primeiroOrcamento);
         System.out.println("Valor do primeiro orçamento: " + primeiroOrcamento.getValor());
-        primeiroOrcamento.analisar();
+        primeiroOrcamento.getSituacao().analisar(primeiroOrcamento);
         System.out.println("Situação do primeiro orçamento: " + primeiroOrcamento.getSituacao().getDescricao());
-        System.out.println("Valor do desconto extra do primeiro orçamento: " + primeiroOrcamento.calcularValorDescontoExtra());
-        primeiroOrcamento.atualizarValorOrcamento();
+        primeiroOrcamento.getSituacao().atualizarValorOrcamento(primeiroOrcamento);
         System.out.println("Valor do primeiro orçamento: " + primeiroOrcamento.getValor());
-        primeiroOrcamento.aprovar();
+        primeiroOrcamento.getSituacao().aprovar(primeiroOrcamento);
         System.out.println("Situação final do primeiro orçamento: " + primeiroOrcamento.getSituacao().getDescricao());
-        System.out.println("Valor do desconto extra do primeiro orçamento: " + primeiroOrcamento.calcularValorDescontoExtra());
-        primeiroOrcamento.atualizarValorOrcamento();
+        primeiroOrcamento.getSituacao().atualizarValorOrcamento(primeiroOrcamento);
         System.out.println("Valor final do primeiro orçamento: " + primeiroOrcamento.getValor());
         System.out.println("-------------------------------------------------------------------------------------------");
 
         Orcamento segundoOrcamento = new Orcamento(new BigDecimal("1000"), 1);
-        segundoOrcamento.finalizar();
-        segundoOrcamento.analisar();
-        segundoOrcamento.reprovar();
-        System.out.println("Situação do segundo orçamento: " + segundoOrcamento.getSituacao().getDescricao());
+        segundoOrcamento.getSituacao().finalizar(segundoOrcamento);
+        segundoOrcamento.getSituacao().analisar(segundoOrcamento);
+        segundoOrcamento.getSituacao().reprovar(segundoOrcamento);
+        System.out.println("Situação final do segundo orçamento: " + segundoOrcamento.getSituacao().getDescricao());
+        System.out.println("-------------------------------------------------------------------------------------------");
 
         Orcamento terceiroOrcamento = new Orcamento(new BigDecimal("150"),1);
-        terceiroOrcamento.finalizar();
-        terceiroOrcamento.encerrar();
-        System.out.println("Situação do terceiro orçamento: " + terceiroOrcamento.getSituacao().getDescricao());
+        terceiroOrcamento.getSituacao().finalizar(terceiroOrcamento);
+        terceiroOrcamento.getSituacao().encerrar(terceiroOrcamento);
+        terceiroOrcamento.getSituacao().analisar(terceiroOrcamento);
+        System.out.println("Situação final do terceiro orçamento: " + terceiroOrcamento.getSituacao().getDescricao());
+        System.out.println("-------------------------------------------------------------------------------------------");
     }
 }
