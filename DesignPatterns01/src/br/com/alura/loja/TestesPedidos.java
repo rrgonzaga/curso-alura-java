@@ -1,12 +1,10 @@
 package br.com.alura.loja;
 
 import br.com.alura.loja.cliente.Cliente;
-import br.com.alura.loja.orcamento.Orcamento;
 import br.com.alura.loja.pedido.GeraPedido;
-import br.com.alura.loja.pedido.Pedido;
+import br.com.alura.loja.pedido.GeraPedidoHandler;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 public class TestesPedidos {
 
@@ -27,7 +25,8 @@ public class TestesPedidos {
 
     private static void gerarPedido(Cliente cliente, BigDecimal valorOrcamento, int qtdeItens) {
         GeraPedido geraPedido = new GeraPedido(cliente,valorOrcamento,qtdeItens);
-        geraPedido.executa();
+        GeraPedidoHandler geraPedidoHandler = new GeraPedidoHandler(/*dependencias*/);
+        geraPedidoHandler.execute(geraPedido);
     }
 
 
