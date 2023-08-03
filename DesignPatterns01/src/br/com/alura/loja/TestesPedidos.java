@@ -13,6 +13,12 @@ public class TestesPedidos {
      * @param args
      */
     public static void main(String[] args) {
+
+            args = new String[3];
+            args[0] = "Rodrigo";
+            args[1] = "1500";
+            args[2] = "8";
+
         String nomeCliente = args[0];
         Cliente cliente = new Cliente(nomeCliente);
 
@@ -20,7 +26,6 @@ public class TestesPedidos {
         int qtdeItens = Integer.parseInt(args[2]);
 
         gerarPedido(cliente, valorOrcamento,qtdeItens);
-
     }
 
     private static void gerarPedido(Cliente cliente, BigDecimal valorOrcamento, int qtdeItens) {
