@@ -11,6 +11,10 @@ public class TestesPedidos {
     /**
      * Método main representando uma interface de entrada de dados com o usuário para a geração de um pedido.
      * @param args
+     * Obs: O padrão Command sugere que os objetos GUI (Graphical User Interface) não devem enviar
+     * solicitações diretamente para a camanda de negócios e que a implementação de um caso de uso
+     * deve ser extraído para uma classe específica ao invés de estar implementado na
+     * CLI (Common Language Interface)
      */
     public static void main(String[] args) {
 
