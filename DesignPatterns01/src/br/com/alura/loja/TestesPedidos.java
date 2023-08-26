@@ -3,8 +3,11 @@ package br.com.alura.loja;
 import br.com.alura.loja.cliente.Cliente;
 import br.com.alura.loja.pedido.GeraPedido;
 import br.com.alura.loja.pedido.GeraPedidoHandler;
+import br.com.alura.loja.pedido.acao.EnviarEmailPedido;
+import br.com.alura.loja.pedido.acao.SalvarPedido;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class TestesPedidos {
 
@@ -32,9 +35,17 @@ public class TestesPedidos {
         gerarPedido(cliente, valorOrcamento,qtdeItens);
     }
 
-    private static void gerarPedido(Cliente cliente, BigDecimal valorOrcamento, int qtdeItens) {
+    private static void gerarPedido(Cliente cliente, BigDecimal valorOrcamento, Integer qtdeItens) {
         GeraPedido geraPedido = new GeraPedido(cliente,valorOrcamento,qtdeItens);
-        GeraPedidoHandler geraPedidoHandler = new GeraPedidoHandler(/*dependencias*/);
+
+//        GeraPedidoHandler geraPedidoHandler = new GeraPedidoHandler(
+//                Arrays.asList(new EnviarEmailPedido(), new SalvarPedido())
+//        );
+
+        GeraPedidoHandler geraPedidoHandler = new GeraPedidoHandler(
+                List.of(new EnviarEmailPedido(),new SalvarPedido())
+        );
+
         geraPedidoHandler.execute(geraPedido);
     }
 
