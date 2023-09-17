@@ -14,7 +14,7 @@ public abstract class SituacaoOrcamento {
     }
     public void atualizarValorOrcamento(Orcamento orcamento) {
         BigDecimal descontoExtra = calcularValorDescontoExtra(orcamento);
-        System.out.println("Valor do desconto extra: " + orcamento.getSituacao().calcularValorDescontoExtra(orcamento));
+
         if (!BigDecimal.ZERO.equals(descontoExtra)) {
             orcamento.setValor(orcamento.getValor().subtract(descontoExtra));
         }
