@@ -32,4 +32,8 @@ public class Orcamento {
     public void setSituacao(SituacaoOrcamento situacao) {
         this.situacao = situacao;
     }
+
+    public boolean isAprovado() {
+        return this.situacao instanceof Aprovado;
+    }
 }
